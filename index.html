@@ -31,6 +31,24 @@
   body {
     background-color: #030303;
   }
+  #contenedorcarga{
+    background-color: aliceblue;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    transition: all 1% ease;
+    z-index: 10000;
+}
+#carga{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    right: 0%;
+    bottom: 0px;
+    top: 10px;
+    left: 25%;
+    margin: auto;   
+}
   </style>
   <link rel="manifest" href="manifest.json">
 </head>
@@ -38,6 +56,11 @@
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
+       <div id="contenedorcarga">
+        <div id="carga">
+            <img src="gif.gif" alt="gif">
+        </div>
+    </div>
   <script>
     var serviceWorkerVersion = '3954127460';
     var scriptLoaded = false;
@@ -101,6 +124,16 @@
       // Service workers not supported. Just drop the <script> tag.
       loadMainDartJs();
     }
+  </script>
+    <script>
+      window.onload =function(){
+          var carga = document.getElementById('carga')
+          carga.style.visibility = 'hidden';
+          carga.style.opacity = '0';
+          var contenedor = document.getElementById('contenedorcarga')
+          contenedor.style.visibility = 'hidden';
+          contenedor.style.opacity = '0';
+      }
   </script>
 </body>
 </html>
